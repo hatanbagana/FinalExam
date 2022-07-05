@@ -63,7 +63,7 @@ export default function Task(props) {
               htmlFor=""
               id={`${props.key}`}
               className={`${props.isDone?  'checkedtask': ''}`}
-            >{`${props.topic} #${props.id}`}</label>
+            >{`#${props.id} ${props.topic} `}</label>
           ) : (
             <form action="" className="input-edit" onSubmit={handleSubmit}>
               <input type="text" placeholder={`${props.topic}`} />

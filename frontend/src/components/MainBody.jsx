@@ -6,35 +6,35 @@ import { useState } from 'react'
 
 export default function MainBody() {
         const [tasks, setTasks] = useState([])
+        const [data, setData] = useState([])
         const [newdata, setNewdata] = useState(true)
     useEffect(()=>{
 
         taskService.getTasks().then(data=> {
-
-            console.log(data);
             let checked = data.data.filter(e => {
 
                 if(!e.isDone){
                     return !e.isDone
                 }
             });
+            setData(data.data)
             setTasks(checked)
 
     })
         
     }, [newdata])
     function handleSubmit(e){
-        const maxId = tasks.sort(e=>{
+        const maxId = data.sort(e=>{
             if(e.orderId > 1){
                 return -1
             }
         })
-
+        console.log(maxId);
         e.preventDefault()
-        console.log(maxId[0]);
         taskService.createTask({"taskName":e.target[0].value, orderId: maxId[0].orderId+1, isDone: false })
         .then(res=> res.json())
         .then(data=> {
+            console.log(data);
             if(data.message == 'success') {
                 setNewdata(!newdata)
                 e.target.reset();

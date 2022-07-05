@@ -23,12 +23,15 @@ body{
   padding: 20px;
 
   box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.247);
+  position: relative;
+  padding-bottom: 20px;
 }
 
 .input-text{
   margin-top: 15px;
   border: none;
-  padding: 0 40px;
+  width: 100%;
+
 }
 
 form hr{
@@ -41,7 +44,9 @@ form hr{
   background-color: rgb(158, 107, 158);
   border-radius: 20px;  
   font-weight: 600;
-
+  position: absolute;
+  left: 40%;
+  bottom: -5%;
   
 }
 
